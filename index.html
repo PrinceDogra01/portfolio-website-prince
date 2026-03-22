@@ -1,56 +1,479 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Professional Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prince Kumar - Full Stack Developer specializing in scalable solutions, DSA, and competitive programming.">
+  <meta name="keywords" content="Full Stack Developer, C++, Java, JavaScript, React, Portfolio">
+  <title>Prince Kumar | Software Developer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <header>
-        <div class="hero">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm [Your Name], a [Your Profession].</p>
+
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="nav-container">
+      <div class="logo">
+        <span class="logo-text">PRINCE</span>
+        <span class="logo-dot">.</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-wrapper">
+        <!-- Left Content -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>👋 Hello,</span>
+          </div>
+          <h1 class="hero-title">
+            I'm <span class="highlight">Prince Kumar</span>
+          </h1>
+          <h2 class="hero-subtitle">
+            Software Developer
+          </h2>
+          <p class="hero-description">
+            Final-year CS student passionate about building scalable applications, solving complex problems through DSA, and writing clean code.
+          </p>
+<!--
+          Stats
+          <div class="stats-container">
+            <div class="stat-item">
+              <h4 class="stat-number">120<span class="stat-plus">+</span></h4>
+              <p class="stat-label">Projects</p>
+            </div>
+            <div class="stat-item">
+              <h4 class="stat-number">95<span class="stat-plus">%</span></h4>
+              <p class="stat-label">Accuracy</p>
+            </div>
+            <div class="stat-item">
+              <h4 class="stat-number">10<span class="stat-plus">+</span></h4>
+              <p class="stat-label">Technologies</p>
+            </div>
+          </div>
+        -->
+          <!-- CTA Buttons -->
+          <div class="hero-buttons">
+            <a href="https://drive.google.com/file/d/1NsUbxhnNqfNT5iElgPvJMaDUuu0Lecn4/view?usp=drivesdk"
+               class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-download"></i> Resume
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-arrow-right"></i> Hire Me
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links">
+            <a href="https://github.com/PrinceDogra01" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/prince-kumar-592800259" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:princekumarr920@gmail.com" class="social-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
-    </header>
 
-    <!-- Profile Image Section -->
-    <section class="profile-image">
-        <img src="path/to/profile-image.jpg" alt="Profile Image">
-    </section>
+        <!-- Right Visual -->
+        <div class="hero-visual">
+          <div class="profile-container">
+            <div class="profile-circle">
+              <div class="profile-image">
+                <svg class="gradient-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="gradientBlob" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#ff8e53;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="95" fill="url(#gradientBlob)" opacity="0.2"/>
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="url(#gradientBlob)" stroke-width="1" opacity="0.5"/>
+                </svg>
+                <div class="profile-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<!-- old 
+   About Section 
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title reveal">
+        About Me
+      </h2>
+      
+      <div class="about-wrapper">
+      <!-- Skills List 
+        <div class="about-skills reveal">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="skill-info">
+              <h3>Website Development</h3>
+              <p>Building responsive and scalable web applications</p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="skill-info">
+              <h3>Database Management</h3>
+              <p>Designing and optimizing databases</p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="skill-info">
+              <h3>Problem Solving</h3>
+              <p>Competitive programming and algorithm design</p>
+            </div>
+          </div>
+        </div>
 
-    <!-- About Section -->
-    <section class="about">
-        <h2>About Me</h2>
-        <p>[A brief description about yourself]</p>
-    </section>
+         About Content 
+        <div class="about-content reveal">
+          <p>
+            I'm a Computer Science student with a passion for creating elegant solutions to complex problems. 
+            My expertise spans full-stack development, data structures & algorithms, and competitive programming.
+          </p>
+          <p>
+            I believe in writing clean, efficient code and continuously learning new technologies to stay ahead 
+            in the ever-evolving tech landscape.
+          </p>
+          <p>
+            In my free time, I enjoy solving algorithmic challenges on platforms like LeetCode and CodeChef, contributing to open-source projects, and exploring emerging technologies. I'm always excited to collaborate on innovative projects that push the boundaries of what's possible.
+          </p>
+-->
+          <!-- New-->
+           <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title reveal">
+        About Me
+      </h2>
+      <div class="about-content reveal">
+        <div class="about-text-container">
+          <p class="about-text">
+            I'm a Computer Science student with a passion for solving complex problems through elegant code. My journey spans competitive programming, full-stack development, and data-driven solutions. I believe in writing clean, efficient code and continuously learning new technologies.
+         </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-item reveal">
+            <div class="highlight-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Education</h3>
+            <p>B.Tech in Computer Science</p>
+            <span class="highlight-meta">4th Year</span>
+          </div>
+          <div class="highlight-item reveal">
+            <div class="highlight-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Expertise</h3>
+            <p>DSA & Algorithms</p>
+          
+          </div>
+          <div class="highlight-item reveal">
+            <div class="highlight-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Focus</h3>
+            <p>Scalable Solutions</p>
+            <span class="highlight-meta">Clean Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section class="skills">
-        <h2>My Skills</h2>
-        <ul>
-            <li>Skill 1</li>
-            <li>Skill 2</li>
-            <li>Skill 3</li>
-        </ul>
-    </section>
+          <!-- Highlights
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>B.Tech CS</h4>
+              <span>Final Year</span>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h4>Scalability</h4>
+              <span>Focused</span>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-code-branch"></i>
+              </div>
+              <h4>Clean Code</h4>
+              <span>Advocate</span>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4>Competitive Programming</h4>
+              <span>Enthusiast</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+   -->
 
-    <!-- Projects Section -->
-    <section class="projects">
-        <h2>My Projects</h2>
-        <ul>
-            <li><a href="project1-link">Project 1</a></li>
-            <li><a href="project2-link">Project 2</a></li>
-            <li><a href="project3-link">Project 3</a></li>
-        </ul>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <h2 class="section-title reveal">
+        Technical Stack
+      </h2>
+      
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: [Your Email]</p>
-    </section>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Responsive</span>
+          </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
-    </footer>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Backend & Data</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Tools & Platforms</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Netlify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <h2 class="section-title reveal">
+        Featured Projects
+      </h2>
+      
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-quiz"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Space Cadet Quiz</h3>
+            <p>Interactive quiz application with real-time scoring and instant feedback mechanisms.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <a href="https://quiz-spacecadet-e4d93e.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              View Live <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-microphone"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Speak Out</h3>
+            <p>Voice-to-text application leveraging Web Speech API for real-time speech recognition.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Web API</span>
+              <span class="tag">Vercel</span>
+            </div>
+            <a href="https://speak-out-puce.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              View Live <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Entree - Farm To Fork</h3>
+            <p>E-commerce platform connecting farmers with consumers with real-time inventory management.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <a href="https://calm-youtiao-990d99.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              View Live <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2 class="section-title reveal">
+        Let's Connect
+      </h2>
+      <p class="section-subtitle reveal">
+        I'm always interested in new opportunities and collaborations
+      </p>
+      
+      <div class="contact-grid reveal">
+        <a href="mailto:princekumarr920@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h4>Email</h4>
+          <p>princekumarr920@gmail.com</p>
+        </a>
+        <a href="https://github.com/PrinceDogra01" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <h4>GitHub</h4>
+          <p>github.com/PrinceDogra01</p>
+        </a>
+        <a href="https://www.linkedin.com/in/prince-kumar-592800259" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <h4>LinkedIn</h4>
+          <p>prince-kumar-592800259</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h5>Prince Kumar</h5>
+          <p>Software Developer</p>
+        </div>
+        <div class="footer-section">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h5>Connect</h5>
+          <div class="footer-socials">
+            <a href="https://github.com/PrinceDogra01" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/prince-kumar-592800259" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:princekumarr920@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Prince Kumar. Built with <i class="fas fa-heart"></i> and code.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
