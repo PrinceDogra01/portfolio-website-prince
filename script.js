@@ -1,93 +1,186 @@
-<<<<<<< HEAD
-// Smooth scroll for navigation links
+
+// ===================================
+// SMOOTH SCROLL
+// ===================================
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
-        });
-    });
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      closeMenu();
+    }
+  });
 });
 
-// Show "Back to Top" button
-const backToTop = document.createElement("button");
-backToTop.innerText = "↑ Top";
-backToTop.id = "backToTop";
-backToTop.style.position = "fixed";
-backToTop.style.bottom = "20px";
-backToTop.style.right = "20px";
-backToTop.style.display = "none";
-document.body.appendChild(backToTop);
+// ===================================
+// SCROLL REVEAL ANIMATION
+// ===================================
 
-window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(element => {
+  observer.observe(element);
 });
 
-backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+// ===================================
+// DARK MODE TOGGLE
+// ===================================
+
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+const currentTheme = localStorage.getItem('theme') || 'dark-mode';
+htmlElement.classList.add(currentTheme);
+updateThemeIcon(currentTheme);
+
+themeToggle.addEventListener('click', () => {
+  if (htmlElement.classList.contains('dark-mode')) {
+    htmlElement.classList.remove('dark-mode');
+    htmlElement.classList.add('light-mode');
+    localStorage.setItem('theme', 'light-mode');
+    updateThemeIcon('light-mode');
+  } else {
+    htmlElement.classList.remove('light-mode');
+    htmlElement.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark-mode');
+    updateThemeIcon('dark-mode');
+  }
 });
 
-// Simple form validation (optional, if you add a form later)
-const form = document.querySelector("form");
-if (form) {
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        let name = document.querySelector("#name").value.trim();
-        let email = document.querySelector("#email").value.trim();
-        let message = document.querySelector("#message").value.trim();
-
-        if (!name || !email || !message) {
-            alert("Please fill out all fields before submitting.");
-        } else {
-            alert(`Thank you for reaching out, ${name}! I'll get back to you soon.`);
-            form.reset();
-        }
-    });
+function updateThemeIcon(theme) {
+  const icon = themeToggle.querySelector('i');
+  if (theme === 'dark-mode') {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
 }
-=======
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
-        });
-    });
+
+// ===================================
+// BACK TO TOP BUTTON
+// ===================================
+
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
 });
 
-// Show "Back to Top" button
-const backToTop = document.createElement("button");
-backToTop.innerText = "↑ Top";
-backToTop.id = "backToTop";
-backToTop.style.position = "fixed";
-backToTop.style.bottom = "20px";
-backToTop.style.right = "20px";
-backToTop.style.display = "none";
-document.body.appendChild(backToTop);
-
-window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 
-backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+// ===================================
+// NAVBAR SCROLL EFFECT
+// ===================================
+
+const navbar = document.querySelector('.navbar');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  
+  lastScrollTop = scrollTop;
 });
 
-// Simple form validation (optional, if you add a form later)
-const form = document.querySelector("form");
-if (form) {
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        let name = document.querySelector("#name").value.trim();
-        let email = document.querySelector("#email").value.trim();
-        let message = document.querySelector("#message").value.trim();
+// ===================================
+// ACTIVE NAV LINK
+// ===================================
 
-        if (!name || !email || !message) {
-            alert("Please fill out all fields before submitting.");
-        } else {
-            alert(`Thank you for reaching out, ${name}! I'll get back to you soon.`);
-            form.reset();
-        }
-    });
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').slice(1) === current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// ===================================
+// MOBILE MENU TOGGLE
+// ===================================
+
+const hamburger = document.getElementById('hamburger');
+const navLinksContainer = document.querySelector('.nav-links');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+function closeMenu() {
+  hamburger.classList.remove('active');
+  navLinksContainer.classList.remove('active');
+  mobileMenuOverlay.classList.remove('active');
 }
->>>>>>> c1893fa832742a76fb88bc243dc2d42c0412447b
+
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  hamburger.classList.toggle('active');
+  navLinksContainer.classList.toggle('active');
+  mobileMenuOverlay.classList.toggle('active');
+});
+
+// Close menu when overlay is clicked
+mobileMenuOverlay.addEventListener('click', closeMenu);
+
+// Close menu when a link is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// Close menu when clicking elsewhere
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-container')) {
+    closeMenu();
+  }
+});
+
+// ===================================
+// PERFORMANCE OPTIMIZATION
+// ===================================
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
